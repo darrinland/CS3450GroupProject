@@ -1,16 +1,18 @@
 Backlog:
 
-Core:
+Stage 1:
 -As a user I would like to be able to log in and log out
+-Need Dashboard/welcome page to route requests once logged in.
 -As a doctor I would like to publish a record
 -As a secretary I would like to create and view appointments
 -Secretary needs to add/update patients (like admin)
 -As a patient I would like to view my records
 
-Next:
+Stage 2:
 -Doctor should view daily calander
 -Patient should be able to request appointments
 -Secretary should update patient information 
 
-Extras:
+Stage 3:
 -Patient ties to multiple doctors (i.e. Dermatologist, etc)
+-Encryption/Passwords
