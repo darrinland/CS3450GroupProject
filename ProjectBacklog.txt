@@ -1,8 +1,22 @@
+ _   _            _                  _   _            _ _   _
+| | | | ___  _ __(_)_______  _ __   | | | | ___  __ _| | |_| |__
+| |_| |/ _ \| '__| |_  / _ \| '_ \  | |_| |/ _ \/ _` | | __| '_ \
+|  _  | (_) | |  | |/ / (_) | | | | |  _  |  __/ (_| | | |_| | | |
+|_| |_|\___/|_|  |_/___\___/|_| |_| |_| |_|\___|\__,_|_|\__|_| |_|
+
 Backlog:
+
+Team Members:
+  Christian Barton
+  Darrin Landroche
+  Dara Lim
+  Nelli Hovhannisyan
+
 Problem Statement:
-Communication between a physician's office and a patient is
-limited and difficult.  Common queries, such as those associated with
-bills, test results, or appointments could easily be automated.
+Communication between a physician's office and a patient can be
+slow or difficult.  Common queries, such as those associated with
+bills, test results, or appointments could easily be answered
+automatically.
 
 Background information:
 The goal of this software is to allow patients to request appointments
@@ -11,23 +25,47 @@ test results, etc.  It will also provide an automatic filing system for
 documents associated with a given patient.  This should also minimize the
 amount of work that a receptionist must do.
 
+Domain: Cache Valley
+
+Targeted Users: Clinics and doctors will host the service and have their
+clients use the portal online.
+
 Non-functional requirements:
+-Project will be developed in Django.
 -We will need a Dashboard/welcome page to route requests once logged in.
 -Encryption/Passwords (time permitting)
--Project will be developed in Django.
--Records and User information will be stored in a database.
+-Records and User information will be stored in a remote database.
+-Create Database diagram for record storage
+-Create Database diagram for user table
+-Create database diagram for schedule
+-Implement Login view (high level)
+-Implement Patient view (high level)
+-Implement Secretary view (high level)
+-Implement doctor view (high level)
+-Implement database models
 
-Stage 1:
+Functional Requirements:
+
 -As a user I would like to be able to log in and log out
 -As a doctor I would like to publish a record
--As a secretary I would like to create and view appointments
--As a secretary I would like to add/update patients (like admin)
+-As a doctor I would like to edit published Records
+-As a doctor I would like to view a patients published Records
+-As a doctor I would like to add procedures that a patient can access
+-As a doctor I would like to remove/edit available procedures
+-As a secretary I would like to create appointments
+-As a secretary I would like to edit/remove appointments
+-As a secretary I would like to be able to view appointments
+-As a secretary I would like to add patients (like admin)
+-As a secretary I would like to archive/remove patients (Like admin)
 -As a patient I would like to view my records
-
-Stage 2:
--As a doctor I would like to view my daily calander
+-As a doctor I would like to view my daily calendar
+-As a doctor I would like to recommend a test or procedure
 -As a patient I would like to request an appointment
 -As a secretary I would like to update patient information
-
-Stage 3:
--Patient ties to multiple doctors (i.e. Dermatologist, etc) (time permitting)
+-As a secretary I would like to be able to confirm a requested appointment
+-As a patient I would like to view my upcoming appointments
+-As a patient I would like to remove any upcoming appointments
+-As a patient, I would like access to multiple doctors
+  (i.e. Dermatologist, Dentist, etc) (time permitting)
+-As a patient I would like to be able to receive appointment reminders via email (time permitting)
+-As a secretary I would like to create billing statements/invoices
