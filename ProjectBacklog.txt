@@ -1,18 +1,33 @@
 Backlog:
+Problem Statement:
+Communication between a physician's office and a patient is
+limited and difficult.  Common queries, such as those associated with
+bills, test results, or appointments could easily be automated.
+
+Background information:
+The goal of this software is to allow patients to request appointments
+and procedures (with necessary approval from a doctor), and view their
+test results, etc.  It will also provide an automatic filing system for
+documents associated with a given patient.  This should also minimize the
+amount of work that a receptionist must do.
+
+Non-functional requirements:
+-We will need a Dashboard/welcome page to route requests once logged in.
+-Encryption/Passwords (time permitting)
+-Project will be developed in Django.
+-Records and User information will be stored in a database.
 
 Stage 1:
 -As a user I would like to be able to log in and log out
--Need Dashboard/welcome page to route requests once logged in.
 -As a doctor I would like to publish a record
 -As a secretary I would like to create and view appointments
--Secretary needs to add/update patients (like admin)
+-As a secretary I would like to add/update patients (like admin)
 -As a patient I would like to view my records
 
 Stage 2:
--Doctor should view daily calander
--Patient should be able to request appointments
--Secretary should update patient information 
+-As a doctor I would like to view my daily calander
+-As a patient I would like to request an appointment
+-As a secretary I would like to update patient information
 
 Stage 3:
--Patient ties to multiple doctors (i.e. Dermatologist, etc)
--Encryption/Passwords
+-Patient ties to multiple doctors (i.e. Dermatologist, etc) (time permitting)
