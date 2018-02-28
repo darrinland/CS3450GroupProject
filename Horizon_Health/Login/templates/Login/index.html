@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Horizon Health Login</title>
+    <link rel= "stylesheet" href= "{% static 'Login/style.css' %}" type= "text/css" />
+  </head>
+  <body>
+    <div>
+      <form>
+        <div>
+          <div class='labelbox'>
+            <label for="username">Username: </label> <br>
+          </div>
+          <div class='labelbox'>
+            <label for="password">Password: </label>
+          </div>
+        </div>
+        <div>
+          <div class='labelbox'>
+            <input id="username" type="text"/> <br>
+          </div>
+          <div class='labelbox'>
+            <input id="password" type="text"/>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
