@@ -114,13 +114,16 @@ nav a:focus, nav a:hover, nav a:active
         height: 51%;
 }
 
+#content {
+	margin-left: 200px;
+}
+
 #sidebar {
    background-color: #E0FFFF;
-   width: 21%;
+   width: 200px;
 
    transition: 0.5s;
    position: absolute;
-   z-index: 1;
    height: 100%;
    overflow: auto;
 
