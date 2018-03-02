@@ -8,7 +8,8 @@
   </head>
   <body>
     <div>
-      <form>
+      <form action='{% url "Login:handleLogin" %}' method='post'>
+        {% csrf_token %}
         <div>
           <div class='labelbox'>
             <label for="username">Username: </label> <br>
@@ -22,9 +23,10 @@
             <input id="username" type="text"/> <br>
           </div>
           <div class='labelbox'>
-            <input id="password" type="text"/>
+            <input id="password" type="password"/>
           </div>
         </div>
+        <button type='submit' style='display: block'>Login</button>
       </form>
     </div>
   </body>
