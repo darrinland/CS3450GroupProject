@@ -1,0 +1,8 @@
+div{
+  display: inline-block;
+}
+
+.labelbox {
+  height: 40px;
+  display: block;
+}
