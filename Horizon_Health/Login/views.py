@@ -20,9 +20,12 @@ def handleLogin(request):
 		elif user.userType == "secretary":
 			return redirect('http://127.0.0.1:8000/secretary')
 	else:
-		return redirect('http://127.0.0.1:8000/admin')
+		return redirect('Login:failedLogin')
 
 def handleNewUser(request):
 	user = User(user_name=request.POST['user_name'], password=request.POST['password'], userType='patient');
 	user.save()
 	return redirect('http://127.0.0.1:8000/patient/')
+
+def failedLogin(request):
+	return HttpResponse("Login Failed.  Please go back and try again.")
