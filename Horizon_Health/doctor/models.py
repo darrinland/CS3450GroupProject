@@ -12,3 +12,7 @@ class Patient(models.Model):
 class PatientRecord(models.Model):
 	patient_id = models.ForeignKey(Patient, on_delete=models.CASCADE)
 	note = models.CharField(max_length=1000)
+
+class Procedure(models.Model):
+	name = models.CharField(max_length=200)
+	description = models.CharField(max_length=1000)
