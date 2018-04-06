@@ -26,7 +26,7 @@
 		<sidenav>
 			<ul>
 				<li><a href="schedule">Schedule</a></li>
-				<li><a href="">Procedures</a></li>
+				<li><a href="procedures">Procedures</a></li>
 				<li><a href="patients">Patients</a></li>
 				<li><a href="#">Settings</a></li>
 			</ul>	
@@ -35,28 +35,13 @@
 </div>
 
 <div id="content">
-	<h1>Procedures</h1>
-	{% if procedure_list %}
-	<table>
-		<tbody>
-			<tr>
-				<th>ID</th>
-				<th>Name</th>
-				<th>Description</th>
-			</tr>
-			{% for procedure in procedure_list %}
-			<tr>
-				<td>{{ procedure.id }}</td>
-				<td>{{ procedure.name }}</td>
-				<td>{{ procedure.description }}</td>
-			</tr>
-			{% endfor %}
-		</tbody>
-	</table>
-	{% else %}
-	<p>No Procedures Available</p>
-	{% endif %}
-	
-	<a href="add_procedure">Add Procedure</a>
-	
+	<h1>Add Procedure</h1>
+	<form action="{% url 'doctor:post_procedure' %}" method="post">
+		{% csrf_token %}
+		<label for="procedure_name">Procedure Name</label>
+		<input type="text" name="name" id="procedure_name"/><br />
+		<label for="procedure_description">Procedure Description</label>
+		<input type="text" name="description" id="procedure_description"/><br />
+		<input type="submit" value="Submit"/>
+	</form>
 </div>
