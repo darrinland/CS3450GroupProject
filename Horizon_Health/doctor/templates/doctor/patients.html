@@ -33,5 +33,28 @@
 </div>
 
 <div id="content">
-	PATIENTS CONTENT
+	<h1>Patients</h1>
+	{% if patient_list %}
+	<table>
+		<tbody>
+			<tr>
+				<th></th>
+				<th>ID</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+			</tr>
+			{% for patient in patient_list %}
+			<tr>
+				<td><a href="patient_records/{{ patient.id }}">View Records</a></td>
+				<td>{{ patient.id }}</td>
+				<td>{{ patient.first_name }}</td>
+				<td>{{ patient.last_name }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	{% else %}
+	<p>No patients assigned</p>
+	{% endif %}
+	
 </div>
