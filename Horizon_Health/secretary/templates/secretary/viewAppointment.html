@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if Appointments %}
+    {% for items in Appointments %}
+        <div>
+            <h1>Appointment ID: {{items.pk}}</h1>
+            <p>Name: {{items.name}}</p>
+            <p>Phone number: {{items.phone_num}}</p>
+            <p>Address1: {{items.address1}}</p>
+            <p>Address2: {{items.address2}}</p>
+            <p>City: {{items.city}}</p>
+            <p>State: {{items.state}}</p>
+            <p>Zip code: {{items.zip_code}}</p>
+            <p>Date: {{items.date}}</p>
+            
+        </div>
+        <br/>
+        <br/>
+    {% endfor %}
+{% endif %}
+</body>
+</html>
