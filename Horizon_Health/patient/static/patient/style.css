@@ -151,27 +151,3 @@ nav a:focus, nav a:hover, nav a:active
     background-color: #B0C4DE;
 }
 
-.table {
-    font-family: 'italic';
-    border-collapse: collapse;
-    margin-left: 30%;
-    float: left;
-    width: 560px;
-    margin-left: 22%;
-    position: relative;
-}
-
-td, th {
-    border: 1px solid #E0FFFF;
-    text-align: left;
-    padding: 8px;
-}
-tr{
-   font-family: 'italic';
-   color: #555;
-}
-tr:nth-child(even) {
-    background-color: #E0FFFF;
-}
-}
-
