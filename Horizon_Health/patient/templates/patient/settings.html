@@ -1,0 +1,56 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'patient/style.css' %}" />
+
+<!--<span>{{patients.first_name}}</span>-->
+
+<!--<span class = "colored-text"> Hello Nelli</span>-->
+<div id="header">
+    <div class="wrap">
+        <div id="title-area">
+            <h1 id="title">
+                <a href="#">Horizon Health</a>
+            </h1>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#"></a></li>
+                <li><a href="#">How It Works</a></li>
+                <li><a href="#">Contacts</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Sign in</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+<div >
+    <img class="header-image" src="{% static 'patient/images/image.jpeg' %}">
+</div>
+<body>
+
+<div>
+      <form action="{% url 'patient:update_patient' patient_id=patients.id %}" method='post'>
+        {% csrf_token %}
+        <div>
+          <div >
+            <label > First name</label>
+               <input id="firstname" name="firstname" type="text" value={{patients.first_name}} /><br>
+          </div>
+          <div >
+            <label >Last name </label>
+               <input id="lastname" name="lastname" type="text" value={{patients.last_name}} />
+          </div >
+              <div >
+            <label >Date of Birth</label>
+               <input id="dob" name="dob" type="text" value={{patients.date_of_birth}} />
+          </div >
+              <div >
+            <label >Phone Number </label>
+               <input id="phone_number" name="phone_number" type="text" value={{patients.phone_number}} />
+          </div >
+        </div>
+        <button type='submit' style='display: block'>Submit</button>
+      </form>
+    </div>
+</body>
