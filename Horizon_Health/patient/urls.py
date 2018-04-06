@@ -9,3 +9,4 @@ urlpatterns = [
         path('update_patient/<int:patient_id>', views.update_patient, name='update_patient'),
 ]
 
+

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib import admin
 
 # Create your models here.
 
@@ -22,3 +23,12 @@ class Secretary(models.Model):
     pass_word = models.CharField(max_length=30)
     def __str__(self):
         return self.name
+
+class User(models.Model):
+    user_name = models.CharField(max_length=30)
+    password = models.CharField(max_length=30)
+    userType = models.CharField(max_length=30)
+    def __str__(self):
+        return self.user_name
+
+admin.site.register(User);
