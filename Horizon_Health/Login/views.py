@@ -26,7 +26,7 @@ def handleLogin(request):
 def handleNewUser(request):
 	user = User(user_name=request.POST['user_name'], password=request.POST['password'], userType='patient')
 	user.save()
-	patient = Patient()
+	patient = Patient(first_name="12", last_name="Thompson", date_of_birth="may", user_id=str(user.pk))
 	patient.save()
 	return redirect('http://127.0.0.1:8000/patient/?user='+str(user.pk))
 
