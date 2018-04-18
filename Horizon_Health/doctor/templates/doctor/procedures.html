@@ -1,30 +1,14 @@
 {% load	static %}
 <link rel="stylesheet" type="text/css" href="{%	static 'doctor/style.css' %}" />
 
-<div id="header">
-	<div class="wrap">
-		<div id="title-area">
-			<h1 id="title">
-				<a href="welcome">Horizon Health</a>
-			</h1>
-		</div>
-
-		<nav>
-			<ul>
-				<li><a href="#"></a></li>
-				<li><a href="#">How	It Works</a></li>
-				<li><a href="#">Contacts</a></li>
-				<li><a href="#">About Us</a></li>
-				<li><a href="#">Sign in</a></li>
-			</ul>
-		</nav>
-	</div>
-</div>
-
 <div id="sidebar">
+    <div id="header">
+        <img class="header-image" src="{% static 'doctor/images/logo2.png' %}">
+    </div>
 	<div class="sidenav">
 		<sidenav>
 			<ul>
+                <li><a href="welcome">Home</a></li>
 				<li><a href="schedule">Schedule</a></li>
 				<li><a href="">Procedures</a></li>
 				<li><a href="patients">Patients</a></li>
@@ -34,29 +18,32 @@
 	</div>
 </div>
 
-<div id="content">
-	<h1>Procedures</h1>
-	{% if procedure_list %}
-	<table>
-		<tbody>
-			<tr>
-				<th>ID</th>
-				<th>Name</th>
-				<th>Description</th>
-			</tr>
-			{% for procedure in procedure_list %}
-			<tr>
-				<td>{{ procedure.id }}</td>
-				<td>{{ procedure.name }}</td>
-				<td>{{ procedure.description }}</td>
-			</tr>
-			{% endfor %}
-		</tbody>
-	</table>
-	{% else %}
-	<p>No Procedures Available</p>
-	{% endif %}
-	
-	<a href="add_procedure">Add Procedure</a>
-	
+<div id="main">
+    <div id="page-title">
+        <h1>Procedures</h1>
+    </div>
+    <div id="page-content">
+       {% if procedure_list %}
+        <table>
+            <tbody>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+                {% for procedure in procedure_list %}
+                <tr>
+                    <td>{{ procedure.id }}</td>
+                    <td>{{ procedure.name }}</td>
+                    <td>{{ procedure.description }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No Procedures Available</p>
+        {% endif %}
+        
+        <a href="add_procedure">Add Procedure</a>
+    </div>
 </div>
