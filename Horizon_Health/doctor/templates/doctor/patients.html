@@ -34,7 +34,7 @@
                 </tr>
                 {% for patient in patient_list %}
                 <tr>
-                    <td><a href="patient_records/{{ patient.id }}">View Records</a></td>
+                    <td><a class="button" href="patient_records/{{ patient.id }}">View Records</a></td>
                     <td>{{ patient.id }}</td>
                     <td>{{ patient.first_name }}</td>
                     <td>{{ patient.last_name }}</td>
