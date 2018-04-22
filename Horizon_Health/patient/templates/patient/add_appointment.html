@@ -1,0 +1,49 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'patient/style.css' %}" />
+
+<div id="header">
+    <div class="wrap">
+        <div id="title-area">
+            <h1 id="title">
+                <a href="#">Horizon Health</a>
+            </h1>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#"></a></li>
+                <li><a href="#">How It Works</a></li>
+                <li><a href="#">Contacts</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Sign in</a></li>
+            </ul>
+        </nav>
+    </div>
+
+</div>
+<div >
+    <img class="header-image" src="{% static 'patient/images/image.jpeg' %}">
+</div>
+<body>
+
+<div>
+      <form action="{% url 'patient:save_appointment'%}" method='post'>
+        {% csrf_token %}
+        <div>
+          <div >
+            <label > Procedure</label>
+               <input id="procedure" name="procedure" type="text" /><br>
+          </div>
+          <div >
+            <label >Doctor's name</label>
+               <input id="doctor_name" name="doctor_name" type="text" />
+          </div >
+            <div >
+            <label >Date</label>
+               <input id="date" name="date" type="text" />
+          </div >
+        </div>
+        <button type='submit' style='display: block'>Submit</button>
+      </form>
+    </div>
+</body>
