@@ -36,3 +36,7 @@ def handleNewUser(request):
 
 def failedLogin(request):
 	return HttpResponse("Login Failed.  Please go back and try again.")
+
+def handleLogout(request):
+	request.session.flush()
+	return redirect('Login:index');

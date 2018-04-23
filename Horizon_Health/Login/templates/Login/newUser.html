@@ -7,31 +7,35 @@
     <link rel= "stylesheet" href= "{% static 'Login/style.css' %}" type= "text/css" />
   </head>
   <body>
-    <form action='{% url "Login:handleNewUser" %}' method='post'>
-      {% csrf_token %}
-      <div>
-        <div class='labelbox'>
-          <label for="user_name">Username: </label> <br>
+    <main>
+      <form action='{% url "Login:handleNewUser" %}' method='post'>
+        {% csrf_token %}
+        <div>
+          <div class='labelbox'>
+            <label for="user_name">Username: </label> <br>
+          </div>
+          <div class='labelbox'>
+            <label for="password">Password: </label>
+          </div>
+          <div class='labelbox'>
+            <label for="passwordVerify">Retype Password: </label>
+          </div>
         </div>
-        <div class='labelbox'>
-          <label for="password">Password: </label>
+        <div>
+          <div class='labelbox'>
+            <input id="user_name" type="text" name="user_name"/> <br>
+          </div>
+          <div class='labelbox'>
+            <input id="password" type="password" name="password"/>
+          </div>
+          <div class='labelbox'>
+            <input id="passwordVerify" type="password" name="passwordverify"/>
+          </div>
         </div>
-        <div class='labelbox'>
-          <label for="passwordVerify">Retype Password: </label>
+        <div style='display:block; text-align:center'>
+          <button type='submit' style='display: block'>Submit</button>
         </div>
-      </div>
-      <div>
-        <div class='labelbox'>
-          <input id="user_name" type="text" name="user_name"/> <br>
-        </div>
-        <div class='labelbox'>
-          <input id="password" type="password" name="password"/>
-        </div>
-        <div class='labelbox'>
-          <input id="passwordVerify" type="password" name="passwordverify"/>
-        </div>
-      </div>
-      <button type='submit' style='display: block'>Submit</button>
-    </form>
+      </form>
+    </main>
   </body>
 </html>
