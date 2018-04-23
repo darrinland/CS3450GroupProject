@@ -4,14 +4,17 @@ from django.template import loader
 from django.shortcuts import render, redirect
 
 from .models import Patient
+from Login.models import User
 from django.apps import apps
 Appointment = apps.get_model('secretary', 'Appointment')
 # Create your views here.
 
 def index(request) :
-    patients = Patient.objects.get(pk=1)
+    patients = Patient.objects.get(user_id=request.session['user_id'])
+    user = User.objects.get(pk=request.session['user_id'])
     req = {
-        'patients': patients
+        'patients': patients,
+        'user' : user,
     }
     template=loader.get_template("patient/index.html")
     return HttpResponse(template.render(req, request))

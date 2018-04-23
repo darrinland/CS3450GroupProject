@@ -15,7 +15,7 @@
 				<li><a href="#">How	It Works</a></li>
 				<li><a href="#">Contacts</a></li>
 				<li><a href="#">About Us</a></li>
-				<li><a href="#">Sign in</a></li>
+				<li><a href={% url: "Login:handleLogout" %}>Sign in</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -29,7 +29,7 @@
 				<li><a href="">Procedures</a></li>
 				<li><a href="patients">Patients</a></li>
 				<li><a href="#">Settings</a></li>
-			</ul>	
+			</ul>
 		</sidenav>
 	</div>
 </div>
@@ -56,7 +56,7 @@
 	{% else %}
 	<p>No Procedures Available</p>
 	{% endif %}
-	
+
 	<a href="add_procedure">Add Procedure</a>
-	
+
 </div>
