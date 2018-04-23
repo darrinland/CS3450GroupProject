@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponse
 from django.template import loader
-from .models import Patient, Procedure
+from .models import Patient, Procedure, PatientRecord
 
 def index(request):
 	template = loader.get_template('doctor/index.html')
@@ -34,5 +34,17 @@ def patients(request):
 
 def patient_records(request, patient_id):
 	patient = get_object_or_404(Patient, pk=patient_id)
-	context = {'patient': patient}
+	patientRecord = PatientRecord.objects.filter(patient_id=patient)
+	context = {'patient': patient, 'records': patientRecord}
 	return render(request, 'doctor/patient_records.html', context)
+def new_record(request, patient_id):
+	patient = get_object_or_404(Patient, pk=patient_id)
+	context = {'patient': patient}
+	return render(request, 'doctor/new_record.html', context)
+def add_new_record(request, patient_id):
+	patient = Patient.objects.get(pk=patient_id)
+	record = PatientRecord()
+	record.patient_id = patient
+	record.note = request.POST.get('note', False)
+	record.save()
+	return redirect('/doctor/patients')
