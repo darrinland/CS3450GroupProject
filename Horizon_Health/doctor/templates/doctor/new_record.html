@@ -27,16 +27,18 @@
 				<li><a href="../procedures">Procedures</a></li>
 				<li><a href="../patients">Patients</a></li>
 				<li><a href="#">Settings</a></li>
-			</ul>	
+			</ul>
 		</sidenav>
 	</div>
 </div>
 
 <div id="content">
-	<h1>Patient Records</h1>
-	<h2>{{patient.first_name}} {{patient.last_name}}</h2>
-	{% for record in records %}
-	<div>{{record.note}}</div>
-			{% endfor %}
-	<a href="./new_record/{{ patient.id }}"> Add a New Record</a>
+	<form action="{% url 'doctor:add_new_record' patient_id=patient.id %}" method='post'>
+        {% csrf_token %}
+          <div >
+            <label > Note</label>
+               <input id="note" name="note" type="text" /><br>
+          </div>
+        <button type='submit' style='display: block'>Submit</button>
+      </form>
 </div>
