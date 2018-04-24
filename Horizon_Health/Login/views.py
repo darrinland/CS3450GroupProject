@@ -30,7 +30,7 @@ def handleLogin(request):
 def handleNewUser(request):
 	user = User(user_name=request.POST['user_name'], password=request.POST['password'], userType='patient')
 	user.save()
-	patient = Patient(first_name="12", last_name="Thompson", date_of_birth="may", user_id=str(user.pk))
+	patient = Patient(user_id=str(user.pk))
 	patient.save()
 	request.session['user_id'] = str(user.pk)
 	return redirect('patient:index')
