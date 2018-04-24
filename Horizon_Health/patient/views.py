@@ -20,18 +20,22 @@ def index(request) :
     return HttpResponse(template.render(req, request))
 
 def settings(request) :
-    patients = Patient.objects.get(pk=1)
+    patients = Patient.objects.get(pk=request.session['user_id'])
+    user = User.objects.get(pk=request.session['user_id'])
     req = {
-        'patients': patients
+        'patients': patients,
+        'user' : user,
     }
     template=loader.get_template("patient/settings.html")
     return HttpResponse(template.render(req, request))
 
 def appointment(request) :
-    patient = Patient.objects.get(pk=1)
+    patient = Patient.objects.get(pk=request.session['user_id'])
+    user = User.objects.get(pk=request.session['user_id'])
     appointment_list = Appointment.objects.filter(patient_id=patient)
     req = {
-        'appointments': appointment_list
+        'appointments': appointment_list,
+        'user' : user,
     }
     template=loader.get_template("patient/appointment.html")
     return HttpResponse(template.render(req, request))

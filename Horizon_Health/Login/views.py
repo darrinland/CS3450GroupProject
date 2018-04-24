@@ -32,7 +32,8 @@ def handleNewUser(request):
 	user.save()
 	patient = Patient(first_name="12", last_name="Thompson", date_of_birth="may", user_id=str(user.pk))
 	patient.save()
-	return redirect('http://127.0.0.1:8000/patient/?user='+str(user.pk))
+	request.session['user_id'] = str(user.pk)
+	return redirect('patient:index')
 
 def failedLogin(request):
 	return HttpResponse("Login Failed.  Please go back and try again.")
