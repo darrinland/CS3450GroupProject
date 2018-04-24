@@ -4,37 +4,44 @@ from django.template import loader
 from django.shortcuts import render, redirect
 
 from .models import Patient
+from Login.models import User
 from django.apps import apps
 Appointment = apps.get_model('secretary', 'Appointment')
 # Create your views here.
 
 def index(request) :
-    patients = Patient.objects.get(pk=1)
+    patients = Patient.objects.get(user_id=request.session['user_id'])
+    user = User.objects.get(pk=request.session['user_id'])
     req = {
-        'patients': patients
+        'patients': patients,
+        'user' : user,
     }
     template=loader.get_template("patient/index.html")
     return HttpResponse(template.render(req, request))
 
 def settings(request) :
-    patients = Patient.objects.get(pk=1)
+    patients = Patient.objects.get(user_id=request.session['user_id'])
+    user = User.objects.get(pk=request.session['user_id'])
     req = {
-        'patients': patients
+        'patients': patients,
+        'user' : user,
     }
     template=loader.get_template("patient/settings.html")
     return HttpResponse(template.render(req, request))
 
 def appointment(request) :
-    patient = Patient.objects.get(pk=1)
+    patient = Patient.objects.get(user_id=request.session['user_id'])
+    user = User.objects.get(pk=request.session['user_id'])
     appointment_list = Appointment.objects.filter(patient_id=patient)
     req = {
-        'appointments': appointment_list
+        'appointments': appointment_list,
+        'user' : user,
     }
     template=loader.get_template("patient/appointment.html")
     return HttpResponse(template.render(req, request))
 
 def update_patient(request, patient_id) :
-    patient = Patient.objects.get(pk=patient_id)
+    patient = Patient.objects.get(user_id=patient_id)
     patient.first_name = request.POST.get('firstname', False)
     patient.last_name = request.POST.get('lastname', False)
     patient.date_of_birth = request.POST.get('dob', False)
@@ -45,7 +52,7 @@ def add_appointment(request) :
     template=loader.get_template("patient/add_appointment.html")
     return HttpResponse(template.render({}, request))
 def save_appointment(request) :
-    patient = Patient.objects.get(pk=1)
+    patient = Patient.objects.get(user_id = request.session['user_id'])
     appointment = Appointment()
     appointment.patient_id = patient
     appointment.date = request.POST.get('date', False)

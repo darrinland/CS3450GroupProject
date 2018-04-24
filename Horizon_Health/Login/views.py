@@ -4,6 +4,9 @@ from django.urls import reverse
 
 from .models import User
 from patient.models import Patient
+from patient.urls import urlpatterns
+from doctor.urls import urlpatterns
+from secretary.urls import urlpatterns
 
 def index(request):
 	return render(request, 'Login/index.html')
@@ -14,12 +17,13 @@ def newUser(request):
 def handleLogin(request):
 	user = User.objects.filter(user_name=request.POST['user_name'], password=request.POST['password']).first()
 	if user:
+		request.session['user_id'] = str(user.pk)
 		if user.userType == "patient":
-			return redirect('http://127.0.0.1:8000/patient?user='+str(user.pk))
+			return redirect('patient:index')
 		elif user.userType == "doctor":
-			return redirect('http://127.0.0.1:8000/doctor?user='+str(user.pk))
+			return redirect('doctor:index')
 		elif user.userType == "secretary":
-			return redirect('http://127.0.0.1:8000/secretary?user='+str(user.pk))
+			return redirect('secretary:index')
 	else:
 		return redirect('Login:failedLogin')
 
@@ -28,7 +32,12 @@ def handleNewUser(request):
 	user.save()
 	patient = Patient(first_name="12", last_name="Thompson", date_of_birth="may", user_id=str(user.pk))
 	patient.save()
-	return redirect('http://127.0.0.1:8000/patient/?user='+str(user.pk))
+	request.session['user_id'] = str(user.pk)
+	return redirect('patient:index')
 
 def failedLogin(request):
 	return HttpResponse("Login Failed.  Please go back and try again.")
+
+def handleLogout(request):
+	request.session.flush()
+	return redirect('Login:index');

@@ -5,16 +5,19 @@ from django.shortcuts import redirect, render
 from django.template import loader
 from .models import Appointment
 
+from Login.models import User
+
 
 # Create your views here.
 
 def index(request):
     template = loader.get_template("secretary/index.html")
-    return HttpResponse(template.render({}, request))
+    user = User.objects.get(pk=request.session['user_id'])
+    return HttpResponse(template.render({ 'user': user }, request))
 
 def create(request):
     template = loader.get_template("secretary/createAppointment.html")
-    return HttpResponse(template.render({}, request))
+    return HttpResponse(template.render({ 'user': request.session['user_id']}, request))
 
 def handle_info(request):
     name = request.POST['name']
@@ -33,6 +36,3 @@ def viewAppointment(request):
     appoint =Appointment.objects.all()
     context = {'Appointments':appoint}
     return render(request, './secretary/viewAppointment.html', context)
-
-
-

@@ -3,14 +3,17 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import Patient, Procedure, PatientRecord
 
+from Login.models import User
+
 def index(request):
 	template = loader.get_template('doctor/index.html')
-	return HttpResponse(template.render({}, request))
+	user = User.objects.get(pk=request.session['user_id'])
+	return HttpResponse(template.render({ 'user': user }, request))
 
 def schedule(request):
 	template = loader.get_template('doctor/schedule.html')
 	return HttpResponse(template.render({}, request))
-	
+
 def procedures(request):
 	procedure_list = Procedure.objects.order_by('id')
 	context = {'procedure_list': procedure_list}
@@ -26,7 +29,7 @@ def post_procedure(request):
 	proc = Procedure(name = name, description = description)
 	proc.save()
 	return redirect('/doctor/procedures')
-	
+
 def patients(request):
 	patient_list = Patient.objects.order_by('id')
 	context = {'patient_list': patient_list}

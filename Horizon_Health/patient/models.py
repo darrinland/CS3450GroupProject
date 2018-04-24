@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib import admin
 
 
 class Patient(models.Model):
@@ -7,3 +8,5 @@ class Patient(models.Model):
     phone_number=models.CharField(max_length=256)
     date_of_birth=models.CharField(max_length=256)
     user_id=models.IntegerField()
+
+admin.site.register(Patient)
