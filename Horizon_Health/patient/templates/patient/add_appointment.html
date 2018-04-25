@@ -30,9 +30,33 @@
       <form action="{% url 'patient:save_appointment'%}" method='post'>
         {% csrf_token %}
         <div>
-          <div >
+            <div >
             <label > Procedure</label>
                <input id="procedure" name="procedure" type="text" /><br>
+          </div>
+          <div >
+            <label > Name</label>
+               <input id="name" name="name" type="text" /><br>
+          </div>
+            <div >
+            <label > Address</label>
+               <input id="address" name="address" type="text" /><br>
+          </div>
+            <div >
+            <label > Phone number</label>
+               <input id="phone_number" name="phone_number" type="text" /><br>
+          </div>
+            <div >
+            <label > City</label>
+               <input id="city" name="city" type="text" /><br>
+          </div>
+            <div >
+            <label > State</label>
+               <input id="state" name="state" type="text" /><br>
+          </div>
+            <div >
+            <label > Zip Code</label>
+               <input id="zip_code" name="zip_code" type="text" /><br>
           </div>
           <div >
             <label >Doctor's name</label>

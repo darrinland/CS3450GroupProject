@@ -41,7 +41,7 @@ def appointment(request) :
     return HttpResponse(template.render(req, request))
 
 def update_patient(request, patient_id) :
-    patient = Patient.objects.get(user_id=patient_id)
+    patient = Patient.objects.get(user_id = request.session['user_id'])
     patient.first_name = request.POST.get('firstname', False)
     patient.last_name = request.POST.get('lastname', False)
     patient.date_of_birth = request.POST.get('dob', False)
@@ -58,6 +58,12 @@ def save_appointment(request) :
     appointment.date = request.POST.get('date', False)
     appointment.procedure = request.POST.get('procedure', False)
     appointment.doctor_name = request.POST.get('doctor_name', False)
+    appointment.name = request.POST.get('name', False)
+    appointment.phone_num = request.POST.get('phone_number', False)
+    appointment.address1 = request.POST.get('address', False)
+    appointment.city = request.POST.get('city', False)
+    appointment.state = request.POST.get('state', False)
+    appointment.zip_code = request.POST.get('zip_code', False)
     appointment.save()
     return redirect('/patient')
 def delete_appointment(request, appointment_id) :
