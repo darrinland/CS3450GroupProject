@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect, HttpResponse
 from django.template import loader
 from django.shortcuts import render, redirect
+from doctor.models import Procedure
 
 from .models import Patient
 from Login.models import User
@@ -63,3 +64,6 @@ def save_appointment(request) :
 def delete_appointment(request, appointment_id) :
     Appointment.objects.get(pk=appointment_id).delete()
     return redirect('/patient/appointment')
+
+def viewProcedure(request):
+    return redirect('/doctor/procedures')

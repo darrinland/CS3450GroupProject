@@ -17,7 +17,11 @@
             <p>State: {{items.state}}</p>
             <p>Zip code: {{items.zip_code}}</p>
             <p>Date: {{items.date}}</p>
-            
+            <form action="{% url 'secretary:buttonHandler' items.id %}" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Delete" name="submit_type">
+                <input type="submit" value="Edit" name="submit_type">
+            </form>
         </div>
         <br/>
         <br/>

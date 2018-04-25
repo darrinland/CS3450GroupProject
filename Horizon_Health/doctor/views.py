@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, request
 from django.template import loader
 from .models import Patient, Procedure, PatientRecord
 
@@ -51,3 +51,8 @@ def add_new_record(request, patient_id):
 	record.note = request.POST.get('note', False)
 	record.save()
 	return redirect('/doctor/patients')
+
+def delete_procedure(request, id):
+	pro = Procedure.objects.get(pk=id)
+	pro.delete()
+	return redirect('/doctor')

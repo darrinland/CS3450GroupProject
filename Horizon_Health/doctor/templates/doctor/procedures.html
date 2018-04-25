@@ -49,6 +49,12 @@
 				<td>{{ procedure.id }}</td>
 				<td>{{ procedure.name }}</td>
 				<td>{{ procedure.description }}</td>
+				<td>
+					<form action="{% url 'doctor:deleteProcedure' procedure.id %}" method="POST">
+						{% csrf_token %}
+						<input type="submit" value="Delete">
+					</form>
+				</td>
 			</tr>
 			{% endfor %}
 		</tbody>

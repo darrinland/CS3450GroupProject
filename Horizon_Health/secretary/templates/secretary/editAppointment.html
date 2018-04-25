@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create An Appointment Page</title>
+</head>
+<body>
+<form action="{% url 'secretary:handle_edit' %}" method="post">
+    {% csrf_token %}
+    <input type = 'hidden' value="{{ item.id }}" name = id>
+    <div>
+        <label for="patient_name">Enter name:</label>
+        <input id="patient_name" type="text" name="name" value="{{ item.name }}">
+    </div>
+    <div>
+        <label for="patient_phone_number">Enter phone number:</label>
+        <input id="patient_phone_number" type="text" name="phone_num" value="{{ item.phone_num }}">
+    </div>
+    <div>
+        <label for="patient_address1">Enter address1:</label>
+        <input id="patient_address1" type="text" name="address1" value="{{ item.address1 }}">
+    </div>
+    <div>
+        <label for="patient_address2">Enter address2:</label>
+        <input id="patient_address2" type="text" name="address2" value="{{ item.address2 }}">
+    </div>
+    <div>
+        <label for="patient_city">Enter city:</label>
+        <input id="patient_city" type="text" name="city" value="{{ item.city }}">
+    </div>
+    <div>
+        <label for="patient_state">Enter state:</label>
+        <input id="patient_state" type="text" name="state" value="{{ item.state }}">
+    </div>
+    <div>
+        <label for="patient_zip_code">Enter zip code:</label>
+        <input id="patient_zip_code" type="text" name="zip_code" value="{{ item.zip_code }}">
+    </div>
+     <div>
+        <label for="patient_date">Enter date:</label>
+        <input id="patient_date" type="text" name="date" value="{{ item.date }}" required="true">
+    </div>
+    <div>
+        <input type="submit" value="OK">
+    </div>
+</form>
+</body>
+</html>
+

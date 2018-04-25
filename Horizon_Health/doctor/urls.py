@@ -14,4 +14,5 @@ urlpatterns = [
 	path('patient_records/<int:patient_id>', views.patient_records, name='patient_records'),
 	path('patient_records/new_record/<int:patient_id>', views.new_record, name='new_record'),
 	path('add_new_record/<int:patient_id>', views.add_new_record, name='add_new_record'),
+	path('deleteProcedure/<int:id>/delete/', views.delete_procedure, name='deleteProcedure'),
 ]
