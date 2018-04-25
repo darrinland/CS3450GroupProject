@@ -21,6 +21,6 @@ urlpatterns = [
     path('polls/', include('polls.urls')),
     path('patient/', include('patient.urls')),
     path('admin/', admin.site.urls),
-    path('secretary/', include('secretary.urls')),
+    path('secretary/', include('secretary.urls', namespace='secretary')),
     path('doctor/', include('doctor.urls')),
 ]
