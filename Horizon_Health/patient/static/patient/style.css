@@ -37,7 +37,6 @@
 
 #main {
     margin-left: 175px;
-    width: 100%;
 }
 
 #page-title {
@@ -47,10 +46,27 @@
     padding-bottom: 1px;
     color: #FFFFFF;
 }
-
+textarea {
+        height: 200px;
+        width: 400px;
+        margin: 15px;
+        text-align: left;
+        padding: 0;
+    }
+        .label-text {
+        margin-left: 15px;
+        text-align: left;
+    }
+    .review-button {
+        margin-left: 15px !important;
+    }
+    .review-form {
+        text-align: left !important;
+    }
 #page-content {
     /*padding-left: 15px;*/
     padding: 15px;
+    text-align: center;
 }
 
 body {
