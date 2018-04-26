@@ -1,153 +1,122 @@
-
-#header {
-  background-color: #E0FFFF;
-  height: 70px;
-  overflow: hidden;
-  /* Overflow hidden is used because we will be floating all children elements. */
+#sidebar {
+    padding-top: 20px;
+    background-color: #13505b;
+    width: 175px;
+    position: absolute;
+    height: 100%;
+    overflow: auto;
 }
 
-.wrap {
-  width: 1152px;
-
-  margin: 0 auto;
-  /* Shorthand for margin. Auto on left and right allows .wrap to be centered in the browser */
-}
-
-#title-area {
-  display:block;
-  /* Display block allows setting of width and height values  */
-
-  width: 30%;
-  /*A small width is to ensure that there is space for navigational elements*/
-
-  float: left;
-  /* floating the title area left ensures that it can be placed side by side with the navigational elements, which would be floated to the left as well */
-}
-
-nav {
-  float: right;
-  width: 65%;
-}
-
-nav li{
-  display: inline;
-}
-
-nav ul {
-  text-transform: uppercase;
-  float: right;
-  /* This is to convert all letters to uppercase */
-}
-nav ul:after {
-  content:'';
-  display:inline-block;
-  width: 100%;
-  height: 0;
-}
-
-nav a {
-  padding: 1em 20px;
-}
-
-body {
-  font: normal 18px/1.5 "Montserrat", helvetica, arial, sans-serif;
-  /*
-  font weight:    normal;
-  font-size:      18px;
-  line-height:    1.5;
-  font-family:    "Montserrat", helvetica, arial, sans-serif; */
-}
-
-#title,
-nav {
-/* commas allow you to add more than one selector to have the same styles.*/
-    font-weight: bold;
-}
-
-#title {
-  font-size: 40px;
-  margin: 0
-  /* This is to enlarge the font on the title text */
-}
-
-
-a {
-  text-decoration: none;
-  /* This removes the underline in anchor tags */
-}
-
-#title a, nav a,
-/* This targets the <a> tag within #title and #nav respectively */
-#title a:visited, nav a:visited
-/* This targets links that were already visited before by the user  */
-{
-  color: #4682B4;
-}
-
-
-#title a:focus, /*Focus takes effect when the tab shortcut is used to navigate the links */
-#title a:hover,  /* Hover takes effect when you mouse enter the specific area */
-#title a:active  /* active takes effect when its the active page */
-{
-  color: #4682B4;
-  text-decoration: none;
-  /* This ensures the header text doesn't change color on hover */
-}
-
-nav a:focus, nav a:hover, nav a:active
-{
-  color: #ADD8E6;
-  text-decoration: none;
-}
-
-#titleside{
- font-weight: bold;
- font-size: 35px;
- font-family: 'italic';
- flex: 1;
- color: #C71585
-
-
-}
 .header-image {
         width: 100%;
-        height: 51%;
 }
 
-#sidebar {
-   background-color: #E0FFFF;
-   width: 21%;
-
-   transition: 0.5s;
-   position: absolute;
-   z-index: 1;
-   height: 100%;
-   overflow: auto;
-
-   }
 .sidenav li{
-
   display: vertical;
  }
-.sidenav a {
 
+.sidenav a {
     padding: 8px 0;
+    text-align: center;
     text-decoration: none;
     font-size: 20px;
-    color: #191970;
+    color: #FFFFFF;
     display:  block;
-    transition: 0.3s;
 }
-.sidenav ul{
-  float: bottom;
-  list-style: none;
-  float:left;
-  padding: 0;
 
+.sidenav ul{
+  list-style: none;
+  padding: 0;
 }
 
 .sidenav a:hover {
-    color: #C71585;
+    color: #0067b1;
     background-color: #B0C4DE;
 }
 
+
+#main {
+    margin-left: 175px;
+    width: 100%;
+}
+
+#page-title {
+    background-color: #50c9ce;
+    padding-left: 15px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    color: #FFFFFF;
+}
+
+#page-content {
+    /*padding-left: 15px;*/
+    padding: 15px;
+}
+
+body {
+    font-family: "Trebuchet MS", Arial, Halvetica, sans-serif;
+    background-color: #f6f7f8;
+    color: #333333;
+}
+
+table {
+    border-collapse: collapse;
+    max-width: 70%;
+}
+
+tr:nth-child(odd) {
+    background-color: #e6e6e6;
+}
+
+td, th {
+    padding: 10px;
+}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #13505b;
+    color: white;
+}
+
+.button {
+    background-color: #50c9ce;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #32afb3;
+}
+
+form {
+    max-width: 50%;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    box-sizing: border-box;
+}
+
+#userbanner {
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 20px;
+    margin-top: 60px;
+}
+
+.user-banner {
+    padding: 5px;
+}

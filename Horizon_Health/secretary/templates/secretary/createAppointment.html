@@ -1,48 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Create An Appointment Page</title>
-</head>
-<body>
-<form action="{% url 'secretary:handle_info' %}" method="post">
-    {% csrf_token %}
-    <div>
-        <label for="patient_name">Enter name:</label>
-        <input id="patient_name" type="text" name="name" value="">
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'secretary/style.css'%}">
+
+<div id="sidebar">
+    <div id="header">
+        <img class="header-image" src="{% static 'doctor/images/logo2.png' %}">
     </div>
-    <div>
-        <label for="patient_phone_number">Enter phone number:</label>
-        <input id="patient_phone_number" type="text" name="phone_num" value="">
+	<div class="sidenav">
+		<sidenav>
+			<ul>
+		                <li><a href="../secretary">Home</a></li>
+		                <li><a href="#">Procedure</a></li>
+		                <li><a href="">Add Appointment</a></li>
+		                <li><a href="viewAppointment">View Appointments</a></li>
+		                <li><a href="#">Add patient</a></li>
+		                <li><a href="#">Remove patient</a> </li>
+		                <li><a href="#">Settings</a></li>
+                			<li><a href={% url "Login:handleLogout" %}>Log Out</a></li>
+			</ul>	
+			
+			<div id="userbanner">
+			    <div class="user-banner">Welcome</div>
+			    <div class="user-banner">{{ user.user_name }}</div>
+			</div
+		</sidenav>
+	</div>
+</div>
+
+<div id="main">
+    <div id="page-title">
+        <h1>Add Appointment</h1>
     </div>
-    <div>
-        <label for="patient_address1">Enter address1:</label>
-        <input id="patient_address1" type="text" name="address1" value="">
+    <div id="page-content">
+        <form action="{% url 'secretary:handle_info' %}" method="post">
+	    {% csrf_token %}
+	    <div>
+	        <label for="patient_name">Enter name:</label>
+	        <input id="patient_name" type="text" name="name" value="">
+	    </div>
+	    <div>
+	        <label for="patient_phone_number">Enter phone number:</label>
+	        <input id="patient_phone_number" type="text" name="phone_num" value="">
+	    </div>
+	    <div>
+	        <label for="patient_address1">Enter address1:</label>
+	        <input id="patient_address1" type="text" name="address1" value="">
+	    </div>
+	    <div>
+	        <label for="patient_address2">Enter address2:</label>
+	        <input id="patient_address2" type="text" name="address2" value="">
+	    </div>
+	    <div>
+	        <label for="patient_city">Enter city:</label>
+	        <input id="patient_city" type="text" name="city" value="">
+	    </div>
+	    <div>
+	        <label for="patient_state">Enter state:</label>
+	        <input id="patient_state" type="text" name="state" value="">
+	    </div>
+	    <div>
+	        <label for="patient_zip_code">Enter zip code:</label>
+	        <input id="patient_zip_code" type="text" name="zip_code" value="">
+	    </div>
+	     <div>
+	        <label for="patient_date">Enter date:</label>
+	        <input id="patient_date" type="text" name="date" value="" required="true">
+	    </div>
+	    <div>
+	        <input class="button" type="submit" value="OK">
+	    </div>
+	</form>
     </div>
-    <div>
-        <label for="patient_address2">Enter address2:</label>
-        <input id="patient_address2" type="text" name="address2" value="">
-    </div>
-    <div>
-        <label for="patient_city">Enter city:</label>
-        <input id="patient_city" type="text" name="city" value="">
-    </div>
-    <div>
-        <label for="patient_state">Enter state:</label>
-        <input id="patient_state" type="text" name="state" value="">
-    </div>
-    <div>
-        <label for="patient_zip_code">Enter zip code:</label>
-        <input id="patient_zip_code" type="text" name="zip_code" value="">
-    </div>
-     <div>
-        <label for="patient_date">Enter date:</label>
-        <input id="patient_date" type="text" name="date" value="" required="true">
-    </div>
-    <div>
-        <input type="submit" value="OK">
-    </div>
-</form>
-</body>
-</html>
+</div>
 
