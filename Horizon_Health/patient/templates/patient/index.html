@@ -1,115 +1,35 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'patient/style.css' %}" />
 
-<!--<span class = "colored-text"> Hello Nelli</span>-->
-<div id="header">
-    <div class="wrap">
-        <div id="title-area">
-            <h1 id="title">
-                <a href="#">Horizon Health</a>
-            </h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#"></a></li>
-                <li><a href="#">How It Works</a></li>
-                <li><a href="#">Contacts</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href={% url "Login:handleLogout" %}>Log Out</a></li>
-            </ul>
-        </nav>
-    </div>
-
-</div>
-<div >
-    <img class="header-image" src="{% static 'patient/images/image.jpeg' %}">
-</div>
-
 <div id="sidebar">
-    <div class="sidenav">
-        <h2 id="titleside">
-           Welcome
-        </h2>
-        <h3 id='titleside'>
-           {{ user.user_name }}
-        </h3>
-
-        <sidenav>
-            <ul>
-                <li><a href="#">Procedures</a></li>
-                <li><a href="add_appointment">Schedule an appointment</a></li>
-                <li><a href="appointment">My Appointments</a></li>
-                <li><a href="settings">Settings</a></li>
-            </ul>
-            </sidenav>
-
+    <div id="header">
+        <img class="header-image" src="{% static 'patient/images/logo2.png' %}">
     </div>
+	<div class="sidenav">
+		<sidenav>
+			<ul>
+                <li><a href="/patient">Home</a></li>
+				
+	                <li><a href="#">Procedures</a></li>
+	                <li><a href="add_appointment">Schedule an appointment</a></li>
+	                <li><a href="appointment">My Appointments</a></li>
+	                <li><a href="settings">Settings</a></li>
+               	 <li><a href={% url "Login:handleLogout" %}>Log Out</a></li>
+		</ul>	
+			
+			<div id="userbanner">
+			    <div class="user-banner">Welcome</div>
+			    <div class="user-banner">{{ user.user_name }}</div>
+			</div
+		</sidenav>
+	</div>
+</div>
 
-     </div>
-
- <body >
-    <table width="80%" align="center">
-
-
-    <tr>
-        <th>10:00 - 11:00</th>
-
-            <td>Something</td>
-            <td>Something</td>
-
-            <td>Something</td>
-            <td>Something</td>
-            <td>Something</td>
-        </div>
-    </tr>
-
-    <tr>
-        <th>11:00 - 12:00</td>
-
-            <td>Something</td>
-            <td>Something</td>
-            <td>Something</td>
-            <td>Something</td>
-            <td>Something</td>
-            <td>Something</td>
-        </div>
-    </tr>
-
-    <tr>
-        <th>12:00 - 01:00</td>
-
-            <td>Something</td>
-            <td>Something</td>
-            <td>Something</td>
-            <td>Something</td>
-            <td>Something</td>
-            <td>Something</td>
-
-        </div>
-    </tr>
-
-    <tr>
-        <th>01:00 - 02:00</td>
-
-            <td>Something</td>
-            <td>Something</td>
-            <td>Something</td>
-            <td>Something</td>
-            <td>Something</td>
-            <td>Something</td>
-
-        </div>
-    </tr>
-
-    <tr>
-        <th>02:00 - 03:00</td>
-
-            <td>Header</td>
-            <td>Header</td>
-            <td>Header</td>
-            <td>Header</td>
-            <td>Header</td>
-            <td>Header</td>
-        </div>
-    </tr>
-</table>
+<div id="main">
+    <div id="page-title">
+        <h1>Welcome</h1>
+    </div>
+    <div id="page-content">
+	##WELCOME CONTENT##
+    </div>
+</div>

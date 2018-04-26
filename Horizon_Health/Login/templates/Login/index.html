@@ -9,14 +9,18 @@
   <body>
     <div class='center'>
       <main>
+      <div id="header">
+        <img class="header-image" src="{% static 'doctor/images/logo2.png' %}">
+    </div>
         <form action='{% url "Login:handleLogin" %}' method='post'>
           {% csrf_token %}
+
           <div>
             <div class='labelbox'>
-              <label for="user_name">Username: </label> <br>
+              <label for="user_name">Username </label> <br>
             </div>
             <div class='labelbox'>
-              <label for="password">Password: </label>
+              <label for="password">Password </label>
             </div>
           </div>
           <div>
@@ -28,8 +32,8 @@
             </div>
           </div>
           <div style='display: block'>
-            <button type='submit'>Login</button>
-            <a href={% url "Login:newUser" %}><button type='button'>New User</button></a>
+            <button class="button" type='submit'>Login</button>
+            <a class="button" href={% url "Login:newUser" %}>New User</a>
           </div>
         </form>
       </main>

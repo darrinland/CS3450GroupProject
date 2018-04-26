@@ -1,29 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'patient/style.css' %}" />
 
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
+<div id="sidebar">
+    <div id="header">
+        <img class="header-image" src="{% static 'patient/images/logo2.png' %}">
+    </div>
+	<div class="sidenav">
+		<sidenav>
+			<ul>
+                <li><a href="/patient">Home</a></li>
+				
+	                <li><a href="#">Procedures</a></li>
+	                <li><a href="add_appointment">Schedule an appointment</a></li>
+	                <li><a href="">My Appointments</a></li>
+	                <li><a href="settings">Settings</a></li>
+	                <li><a href={% url "Login:handleLogout" %}>Log Out</a></li>
+		</ul>	
+		</sidenav>
+	</div>
+</div>
 
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-</style>
-</head>
-<body>
-
-<h2>Appointments</h2>
-
-<table>
+<div id="main">
+    <div id="page-title">
+        <h1>Appointments</h1>
+    </div>
+    <div id="page-content">
+    <table>
   <tr>
     <th>Procedure</th>
     <th>Doctor's name</th>
@@ -35,10 +37,10 @@ tr:nth-child(even) {
     <td>{{appointment.procedure}}</td>
     <td>{{appointment.doctor_name}}</td>
     <td>{{appointment.date}}</td>
-    <td><a href="delete_appointment/{{appointment.id}}">Delete</a></td>
+    <td><a class="button" href="delete_appointment/{{appointment.id}}">Delete</a></td>
   </tr>
   {% endfor %}
 </table>
+    </div>
+</div>
 
-</body>
-</html>

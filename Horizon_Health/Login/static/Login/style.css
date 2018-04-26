@@ -1,21 +1,24 @@
+body {
+    font-family: "Trebuchet MS", Arial, Halvetica, sans-serif;
+    background-color: #f6f7f8;
+    color: #333333;
+    text-align: center;
+  min-height: 30em;
+}
+
 div{
   display: inline-block;
 }
 
-body {
-  text-align: center;
-  background-color: black;
-  min-height: 30em;
-}
-
 main {
-  background-color: slateblue;
+  background-color: #13505b;
   display: inline-block;
   padding: 40px;
   text-align: center;
   vertical-align: middle;
   position: relative;
   margin: 60px;
+  color: white;
 }
 
 .labelbox {
@@ -23,7 +26,22 @@ main {
   display: block;
 }
 
-button {
-  margin: 10px;
-  text-align: center;
+.button {
+    background-color: #50c9ce;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #32afb3;
+}
+
+.header-image {
+        margin: 20px;
 }

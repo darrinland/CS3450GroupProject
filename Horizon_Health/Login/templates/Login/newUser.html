@@ -8,17 +8,20 @@
   </head>
   <body>
     <main>
+      <div id="header">
+        <img class="header-image" src="{% static 'doctor/images/logo2.png' %}">
+    </div>
       <form action='{% url "Login:handleNewUser" %}' method='post'>
         {% csrf_token %}
         <div>
           <div class='labelbox'>
-            <label for="user_name">Username: </label> <br>
+            <label for="user_name">Username </label> <br>
           </div>
           <div class='labelbox'>
-            <label for="password">Password: </label>
+            <label for="password">Password </label>
           </div>
           <div class='labelbox'>
-            <label for="passwordVerify">Retype Password: </label>
+            <label for="passwordVerify">Retype Password </label>
           </div>
         </div>
         <div>
@@ -33,7 +36,7 @@
           </div>
         </div>
         <div style='display:block; text-align:center'>
-          <button type='submit' style='display: block'>Submit</button>
+          <button class="button" type='submit' style='display: block'>Submit</button>
         </div>
       </form>
     </main>

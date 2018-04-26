@@ -1,31 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-{% if Appointments %}
-    {% for items in Appointments %}
-        <div>
-            <h1>Appointment ID: {{items.pk}}</h1>
-            <p>Name: {{items.name}}</p>
-            <p>Phone number: {{items.phone_num}}</p>
-            <p>Address1: {{items.address1}}</p>
-            <p>Address2: {{items.address2}}</p>
-            <p>City: {{items.city}}</p>
-            <p>State: {{items.state}}</p>
-            <p>Zip code: {{items.zip_code}}</p>
-            <p>Date: {{items.date}}</p>
-            <form action="{% url 'secretary:buttonHandler' items.id %}" method="POST">
-                {% csrf_token %}
-                <input type="submit" value="Delete" name="submit_type">
-                <input type="submit" value="Edit" name="submit_type">
-            </form>
-        </div>
-        <br/>
-        <br/>
-    {% endfor %}
-{% endif %}
-</body>
-</html>
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'secretary/style.css'%}">
+
+<div id="sidebar">
+    <div id="header">
+        <img class="header-image" src="{% static 'doctor/images/logo2.png' %}">
+    </div>
+	<div class="sidenav">
+		<sidenav>
+			<ul>
+		                <li><a href="../secretary">Home</a></li>
+		                <li><a href="#">Procedure</a></li>
+		                <li><a href="create">Add Appointment</a></li>
+		                <li><a href="viewAppointment">View Appointments</a></li>
+		                <li><a href="#">Add patient</a></li>
+		                <li><a href="#">Remove patient</a> </li>
+		                <li><a href="#">Settings</a></li>
+                			<li><a href={% url "Login:handleLogout" %}>Log Out</a></li>
+			</ul>	
+			
+			<div id="userbanner">
+			    <div class="user-banner">Welcome</div>
+			    <div class="user-banner">{{ user.user_name }}</div>
+			</div
+		</sidenav>
+	</div>
+</div>
+
+<div id="main">
+    <div id="page-title">
+        <h1>Appointments</h1>
+    </div>
+    <div id="page-content">
+        {% if Appointments %}
+	<table>
+	<tbody>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Phone Number</th>
+			<th>Date</th>
+			<th></th>
+			<th></th>
+		</tr>
+		
+	    {% for items in Appointments %}
+	        <tr>
+	            <td>{{items.pk}}</td>
+	            <td>{{items.name}}</td>
+	            <td>{{items.phone_num}}</td>
+	            <td>{{items.date}}</td>
+	            <td>
+		            <form action="{% url 'secretary:buttonHandler' items.id %}" method="POST">
+		                {% csrf_token %}
+		                <input class="button" type="submit" value="Edit" name="submit_type">
+		            </form>
+	            </td>
+	            <td>
+		            <form action="{% url 'secretary:buttonHandler' items.id %}" method="POST">
+		                {% csrf_token %}
+		                <input class="button" type="submit" value="Delete" name="submit_type">
+		            </form>
+	            </td>
+	        </tr>
+	    {% endfor %}
+
+	</tbody>
+	</table>
+	    {% else %}
+	    <div>No Appointments Available<div>
+	{% endif %}
+    </div>
+</div>
