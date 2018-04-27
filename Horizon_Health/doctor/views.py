@@ -10,11 +10,6 @@ def index(request):
 	user = User.objects.get(pk=request.session['user_id'])
 	return HttpResponse(template.render({ 'user': user }, request))
 
-def schedule(request):
-	template = loader.get_template('doctor/schedule.html')
-	user = User.objects.get(pk=request.session['user_id'])
-	return HttpResponse(template.render({ 'user': user }, request))
-
 def procedures(request):
 	procedure_list = Procedure.objects.order_by('id')
 	user = User.objects.get(pk=request.session['user_id'])
@@ -50,6 +45,7 @@ def new_record(request, patient_id):
 	user = User.objects.get(pk=request.session['user_id'])
 	context = {'patient': patient,  'user': user }
 	return render(request, 'doctor/new_record.html', context)
+
 def add_new_record(request, patient_id):
 	patient = Patient.objects.get(pk=patient_id)
 	record = PatientRecord()
